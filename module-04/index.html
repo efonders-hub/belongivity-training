@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 4: Conversations and Follow-Up — Belongivity Training</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .topnav {
+    background: #2c4a3e;
+    padding: 14px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .topnav-back {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    color: #a8c4bb;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+
+  .topnav-back:hover { color: #fff; }
+
+  .topnav-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: #fff;
+    opacity: 0.85;
+  }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 11.5pt;
+    line-height: 1.75;
+    color: #1a1a1a;
+    background: #fff;
+  }
+
+  .doc-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 60px 64px 80px 64px;
+  }
+
+  .doc-header {
+    border-bottom: 2px solid #2c4a3e;
+    padding-bottom: 24px;
+    margin-bottom: 40px;
+  }
+
+  .doc-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #2c4a3e;
+    margin-bottom: 8px;
+  }
+
+  .doc-title {
+    font-family: 'Georgia', serif;
+    font-size: 24pt;
+    font-weight: 400;
+    color: #1a1a1a;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .doc-subtitle {
+    font-family: 'Arial', sans-serif;
+    font-size: 10pt;
+    color: #666;
+  }
+
+  .salutation { font-size: 11.5pt; margin-bottom: 20px; color: #1a1a1a; }
+  p { margin-bottom: 16px; font-size: 11.5pt; }
+  hr { border: none; border-top: 1px solid #ddd; margin: 36px 0; }
+
+  h2 {
+    font-family: 'Georgia', serif;
+    font-size: 15pt;
+    font-weight: 600;
+    color: #2c4a3e;
+    margin-top: 40px;
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e0ebe7;
+  }
+
+  h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 10pt;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #555;
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+
+  ol { margin-left: 24px; margin-bottom: 16px; }
+  ol li { margin-bottom: 8px; font-size: 11.5pt; }
+
+  strong { font-weight: 600; color: #1a1a1a; }
+
+  .callout {
+    background: #fffbf0;
+    border: 1px solid #e8d87a;
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 11pt;
+  }
+
+  .routine-block {
+    background: #f7faf8;
+    border-left: 3px solid #2c4a3e;
+    padding: 20px 24px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .routine-block p { margin-bottom: 12px; }
+  .routine-block p:last-child { margin-bottom: 0; }
+
+  .routine-step {
+    font-family: 'Arial', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: #2c4a3e;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .signoff {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid #ddd;
+    font-style: italic;
+    color: #444;
+  }
+
+  .screenshot-placeholder {
+    border: 2px dashed #a8c4bb;
+    border-radius: 6px;
+    background: #f7faf8;
+    padding: 28px 24px;
+    margin: 24px 0;
+    text-align: center;
+  }
+
+  .screenshot-placeholder .ph-icon { font-size: 24pt; color: #a8c4bb; display: block; margin-bottom: 10px; }
+  .screenshot-placeholder .ph-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #2c4a3e;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .screenshot-placeholder .ph-desc { font-family: 'Arial', sans-serif; font-size: 9pt; color: #777; line-height: 1.5; }
+
+  .module-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid #ddd;
+    font-family: 'Arial', sans-serif;
+    font-size: 9.5pt;
+  }
+
+  .module-nav a { color: #2c4a3e; text-decoration: none; font-weight: 600; }
+  .module-nav a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a class="topnav-back" href="../">&larr; All Modules</a>
+  <span class="topnav-title">FGFunnels Training</span>
+</nav>
+
+<div class="doc-body">
+
+<div class="doc-header">
+  <div class="doc-label">Belongivity &nbsp;|&nbsp; FGFunnels Training</div>
+  <div class="doc-title">Module 4: Conversations and Follow-Up</div>
+  <div class="doc-subtitle">Prepared by Emile &nbsp;&middot;&nbsp; May 2026</div>
+</div>
+
+<p class="salutation">Dr. Tonya,</p>
+
+<p>The contacts who feel most cared for are the ones whose consultant never lost the thread. This module is about how to make sure you never do.</p>
+
+<p>By the end, you will know how to use the Conversations Hub once Gmail is connected, how to read a thread and identify who needs a reply, how to reply from inside the platform instead of from Gmail, and how to build a daily rhythm that keeps the whole system current without taking more than a few minutes each morning.</p>
+
+<hr>
+
+<h2>1. How the Hub Works Right Now</h2>
+
+<h3>Before Gmail is connected</h3>
+<p>The Conversations Hub is live in your account now. At this stage it will show messages sent from inside the platform - automated emails from your workflows, for example. It may look quiet. That is expected. The hub is waiting for activity to populate it.</p>
+
+<p>The Gmail connection is the next piece of infrastructure to set up. Once it is in place, the hub becomes the central view for all communication with your contacts.</p>
+
+<h3>What changes when Gmail is connected</h3>
+<p>Once your Gmail is wired to FGFunnels, every email you send or receive from a contact appears in their thread automatically. You do not configure anything per contact. It works in the background across all your conversations.</p>
+
+<p>The result is a single chronological record of everything between you and a given person. Your sent emails, their replies, messages from inside the platform - all in one place, in order. Before you respond to anyone, you can see exactly what was last said and when. That is the view that makes follow-up clean.</p>
+
+<hr>
+
+<h2>2. Reading a Thread</h2>
+
+<h3>How to open one</h3>
+<p>In the left menu, click "Conversations." The left side of the screen shows your active conversation list. Click any contact name to open their thread on the right.</p>
+
+<p>You can also reach a thread directly from a contact record. Open the contact, look for the conversation icon or Messages tab on their page, and click it. This takes you straight to your thread with that one person.</p>
+
+<h3>What you are looking at</h3>
+<p>The thread reads top to bottom, oldest message at the top, newest at the bottom. Each entry shows the message, the channel it came through, and the date. Your outgoing messages and their incoming messages are visually distinct so you can follow the back-and-forth.</p>
+
+<h3>What to look for</h3>
+<p>Find the most recent message. Who sent it? If the last message in the thread is from the contact and you have not replied, that thread is waiting on you. If the date on their message is more than a day or two old, it has been waiting long enough.</p>
+
+<div class="screenshot-placeholder">
+  <span class="ph-icon">&#128247;</span>
+  <span class="ph-label">Screenshot: Conversations Hub with an open thread</span>
+  <span class="ph-desc">Click "Conversations" in the left menu. Open a contact thread. Capture the full view showing the conversation list on the left and the message thread on the right.</span>
+</div>
+
+<hr>
+
+<h2>3. Replying from the Hub</h2>
+
+<h3>How to reply</h3>
+<p>At the bottom of the thread panel, there is a compose area. Type your message there and send. The reply goes to the contact and is recorded in the thread immediately.</p>
+
+<h3>Why to reply here and not from Gmail</h3>
+<p>This is important. When you reply to someone from Gmail directly, that message does not appear in the FGFunnels thread. The record breaks. From that point on, the thread is incomplete - and the next time you open it before a call or meeting, you are working from a partial picture.</p>
+
+<p>Replying from inside the platform is what keeps the history whole. This will feel like a change from your current routine. It becomes automatic quickly, and the payoff is that you always have the full picture before any conversation.</p>
+
+<div class="callout">
+One place to read. One place to reply. That discipline is the whole thing. The moment you start mixing it with direct Gmail replies, the thread breaks and the system loses its value.
+</div>
+
+<div class="screenshot-placeholder">
+  <span class="ph-icon">&#128247;</span>
+  <span class="ph-label">Screenshot: Reply compose area</span>
+  <span class="ph-desc">In an open thread, capture the compose area at the bottom of the thread panel. Show the text input field and the send button.</span>
+</div>
+
+<hr>
+
+<h2>4. The Daily Follow-Up Routine</h2>
+
+<h3>The problem this solves</h3>
+<p>You are running three kinds of work across many relationships at different stages. The thing that erodes trust fastest is not bad intentions. It is losing track. A reply that comes three weeks late. A contact you meant to check in with after their event. A proposal sitting unanswered because you forgot to follow up.</p>
+
+<p>The system you have built is designed to prevent all of that. But only if you check it. Here is the routine that makes it work.</p>
+
+<h3>The morning check - three minutes</h3>
+
+<div class="routine-block">
+  <p><span class="routine-step">Step 1 &nbsp;&mdash;&nbsp; Conversations Hub</span>
+  Open the hub. Scan for any thread where the last message is from the contact and has been sitting for more than a day. Those are today's replies. Handle them before anything else.</p>
+
+  <p><span class="routine-step">Step 2 &nbsp;&mdash;&nbsp; Pipeline Board</span>
+  Open Opportunities. Scan for any card that has not moved in longer than the stage should take. A contact sitting in Discovery Call Booked for two weeks without a completed call needs a follow-up or a decision. Move the card or make contact - do not let it sit.</p>
+
+  <p><span class="routine-step">Step 3 &nbsp;&mdash;&nbsp; Contacts</span>
+  Sort by Last Contact Date. Anyone you have not touched in a while - check their Next Action field. If there is a next step listed and today is close to the right time, do it or schedule it. If the Next Action field is blank, add one now.</p>
+</div>
+
+<p>That is the whole routine. Hub, pipeline, contacts. Three steps, three minutes. Nothing falls through a crack.</p>
+
+<div class="screenshot-placeholder">
+  <span class="ph-icon">&#128247;</span>
+  <span class="ph-label">Screenshot: Contacts sorted by Last Contact Date</span>
+  <span class="ph-desc">In the Contacts view, sort the list by "Last Contact Date" to show the contacts you have not been in touch with recently at the top. Capture the sorted list.</span>
+</div>
+
+<hr>
+
+<h2>You Are Ready</h2>
+
+<p>That is the core training. You know how to navigate the platform, manage your contacts with precision, keep your pipelines current, and run the daily rhythm that holds it all together.</p>
+
+<p>The best next step is to use it. Log in tomorrow morning and run the daily routine for the first time. The first morning will take longer. The second will be faster. By the end of the first week it will feel like second nature.</p>
+
+<p>When questions come up - and they will - write them down as you go. We will address them as the next phase of the work unfolds.</p>
+
+<div class="signoff">
+  <p>Emile</p>
+</div>
+
+<div class="module-nav">
+  <a href="../module-03/">&larr; Module 3: Working the Pipeline</a>
+  <a href="../">&#8617; All Modules</a>
+</div>
+
+</div>
+</body>
+</html>

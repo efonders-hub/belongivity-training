@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 3: Working the Pipeline — Belongivity Training</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .topnav {
+    background: #2c4a3e;
+    padding: 14px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .topnav-back {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    color: #a8c4bb;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+
+  .topnav-back:hover { color: #fff; }
+
+  .topnav-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: #fff;
+    opacity: 0.85;
+  }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 11.5pt;
+    line-height: 1.75;
+    color: #1a1a1a;
+    background: #fff;
+  }
+
+  .doc-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 60px 64px 80px 64px;
+  }
+
+  .doc-header {
+    border-bottom: 2px solid #2c4a3e;
+    padding-bottom: 24px;
+    margin-bottom: 40px;
+  }
+
+  .doc-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #2c4a3e;
+    margin-bottom: 8px;
+  }
+
+  .doc-title {
+    font-family: 'Georgia', serif;
+    font-size: 24pt;
+    font-weight: 400;
+    color: #1a1a1a;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .doc-subtitle {
+    font-family: 'Arial', sans-serif;
+    font-size: 10pt;
+    color: #666;
+  }
+
+  .salutation { font-size: 11.5pt; margin-bottom: 20px; color: #1a1a1a; }
+  p { margin-bottom: 16px; font-size: 11.5pt; }
+  hr { border: none; border-top: 1px solid #ddd; margin: 36px 0; }
+
+  h2 {
+    font-family: 'Georgia', serif;
+    font-size: 15pt;
+    font-weight: 600;
+    color: #2c4a3e;
+    margin-top: 40px;
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e0ebe7;
+  }
+
+  h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 10pt;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #555;
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+
+  ol { margin-left: 24px; margin-bottom: 16px; }
+  ol li { margin-bottom: 8px; font-size: 11.5pt; }
+
+  strong { font-weight: 600; color: #1a1a1a; }
+
+  .stage-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0 20px 0;
+  }
+
+  .stage {
+    background: #e8f0ed;
+    color: #2c4a3e;
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .stage-arrow { color: #999; font-size: 10pt; line-height: 2.2; }
+
+  .stage-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px 0;
+    font-size: 10.5pt;
+  }
+
+  .stage-table th {
+    font-family: 'Arial', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #2c4a3e;
+    text-align: left;
+    padding: 8px 12px;
+    background: #f7faf8;
+    border-bottom: 2px solid #d0e0da;
+  }
+
+  .stage-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #eef2f0;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+
+  .stage-table td:first-child {
+    font-family: 'Arial', sans-serif;
+    font-size: 9.5pt;
+    font-weight: 600;
+    color: #2c4a3e;
+    white-space: nowrap;
+    width: 200px;
+  }
+
+  .callout {
+    background: #fffbf0;
+    border: 1px solid #e8d87a;
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 11pt;
+  }
+
+  .signoff {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid #ddd;
+    font-style: italic;
+    color: #444;
+  }
+
+  .screenshot-placeholder {
+    border: 2px dashed #a8c4bb;
+    border-radius: 6px;
+    background: #f7faf8;
+    padding: 28px 24px;
+    margin: 24px 0;
+    text-align: center;
+  }
+
+  .screenshot-placeholder .ph-icon { font-size: 24pt; color: #a8c4bb; display: block; margin-bottom: 10px; }
+  .screenshot-placeholder .ph-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #2c4a3e;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .screenshot-placeholder .ph-desc { font-family: 'Arial', sans-serif; font-size: 9pt; color: #777; line-height: 1.5; }
+
+  .module-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid #ddd;
+    font-family: 'Arial', sans-serif;
+    font-size: 9.5pt;
+  }
+
+  .module-nav a { color: #2c4a3e; text-decoration: none; font-weight: 600; }
+  .module-nav a:hover { text-decoration: underline; }
+
+  .module-nav .next-label {
+    text-align: right;
+    color: #999;
+    font-size: 8.5pt;
+    line-height: 1.4;
+  }
+
+  .module-nav .next-label a { display: block; font-size: 9.5pt; color: #2c4a3e; }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a class="topnav-back" href="../">&larr; All Modules</a>
+  <span class="topnav-title">FGFunnels Training</span>
+</nav>
+
+<div class="doc-body">
+
+<div class="doc-header">
+  <div class="doc-label">Belongivity &nbsp;|&nbsp; FGFunnels Training</div>
+  <div class="doc-title">Module 3: Working the Pipeline</div>
+  <div class="doc-subtitle">Prepared by Emile &nbsp;&middot;&nbsp; May 2026</div>
+</div>
+
+<p class="salutation">Dr. Tonya,</p>
+
+<p>The pipeline is where your contacts become clients. This module is about using it every day, not just setting it up. By the end, you will know how to read the board at a glance, move contacts forward when real-world steps happen, and use both pipelines with intention.</p>
+
+<p>One principle runs through all of it: the board only works if it reflects reality. Keeping it current is a two-minute habit. Everything else follows from that.</p>
+
+<hr>
+
+<h2>1. The Daily Board Habit</h2>
+
+<h3>What you are checking</h3>
+<p>Each morning, before anything else, open the pipeline board and ask one question: does this still match what is actually happening?</p>
+
+<p>Look for two things. First, any card that should have moved and has not. Second, any card that has been sitting in a stage longer than makes sense. Both are signals that something needs your attention or a decision.</p>
+
+<p>This check takes about two minutes when the board is current. It takes longer when it has been neglected. The habit protects your time.</p>
+
+<h3>The rule on timing</h3>
+<p>When a real-world step happens, the card moves the same day. Not next week. Not when you get to it. The board should always reflect where things actually stand. That is the contract you make with yourself when you use a pipeline system.</p>
+
+<div class="callout">
+A board that is current runs your follow-up for you. A board that is out of date is just decoration.
+</div>
+
+<hr>
+
+<h2>2. The Coaching and Design Research Pipeline</h2>
+
+<h3>What it covers</h3>
+<p>This pipeline tracks your leadership coaching and design research work. It is national in scope. Design research contacts live in this same pipeline - they carry a design-research tag so you can tell them apart when you filter the board.</p>
+
+<h3>Stage by stage</h3>
+
+<table class="stage-table">
+  <thead>
+    <tr><th>Stage</th><th>What it means in practice</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>New Contact</td>
+      <td>Someone is in your world and you have made initial contact. Nothing is scheduled yet.</td>
+    </tr>
+    <tr>
+      <td>Discovery Call Booked</td>
+      <td>A date and time is confirmed on the calendar. Move the card when the call is booked - not when you are thinking about booking it.</td>
+    </tr>
+    <tr>
+      <td>Discovery Call Completed</td>
+      <td>The call happened. Move the card immediately after. Do not wait to see how it goes.</td>
+    </tr>
+    <tr>
+      <td>Proposal Sent</td>
+      <td>A written proposal or scope of work has been sent. Not "I plan to send one." Sent.</td>
+    </tr>
+    <tr>
+      <td>Signed - Active</td>
+      <td>They said yes. An agreement is in place and the engagement has begun.</td>
+    </tr>
+    <tr>
+      <td>Completed</td>
+      <td>The engagement is finished. You delivered what you committed to.</td>
+    </tr>
+    <tr>
+      <td>Not a Fit</td>
+      <td>This person is not becoming a client in this silo. See Section 4 for how to use this stage well.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="screenshot-placeholder">
+  <span class="ph-icon">&#128247;</span>
+  <span class="ph-label">Screenshot: Coaching and Design Research pipeline board</span>
+  <span class="ph-desc">Click "Opportunities" and select "BLVT (4.0) - Coaching and Design Research" from the dropdown. Capture the full board showing all stage columns.</span>
+</div>
+
+<hr>
+
+<h2>3. The Therapy Pipeline</h2>
+
+<h3>What it covers</h3>
+<p>This pipeline is for individual virtual therapy only. It is Illinois contacts only - that boundary is set by your state licensure. If someone outside Illinois reaches out about therapy, they go to Not a Fit. That is not a judgment about them. It is a legal boundary you have to hold.</p>
+
+<h3>Stage by stage</h3>
+
+<table class="stage-table">
+  <thead>
+    <tr><th>Stage</th><th>What it means in practice</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>New Inquiry</td>
+      <td>Someone has reached out or expressed interest. First contact has been made.</td>
+    </tr>
+    <tr>
+      <td>Consult Booked</td>
+      <td>A consultation is on the calendar. Moving the card here also triggers an automated confirmation email to the contact.</td>
+    </tr>
+    <tr>
+      <td>Consult Completed</td>
+      <td>The consultation happened. Move the card the same day.</td>
+    </tr>
+    <tr>
+      <td>Active Client</td>
+      <td>They have started therapy with you. Sessions are underway.</td>
+    </tr>
+    <tr>
+      <td>Graduated</td>
+      <td>They completed their work with you successfully. This is the positive end state.</td>
+    </tr>
+    <tr>
+      <td>Not a Fit</td>
+      <td>Not the right match - geography, clinical scope, or any other reason.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout">
+A note on the Consult Booked stage: this is the stage that triggers automation. When you move a card here, the system sends the prospect a confirmation email and creates a prep task for you. That is why the card move matters beyond just tracking - it kicks off the workflow.
+</div>
+
+<div class="screenshot-placeholder">
+  <span class="ph-icon">&#128247;</span>
+  <span class="ph-label">Screenshot: Therapy pipeline board</span>
+  <span class="ph-desc">Select "BLVT (4.0) - Therapy" from the pipeline dropdown. Capture the full board showing the six stage columns.</span>
+</div>
+
+<hr>
+
+<h2>4. Moving a Card</h2>
+
+<h3>The mechanics</h3>
+<ol>
+  <li>Open Opportunities and select the correct pipeline from the dropdown.</li>
+  <li>Find the contact's card in its current stage column.</li>
+  <li>Click and hold the card. Drag it to the column for the new stage.</li>
+  <li>Release. The card saves in the new stage automatically.</li>
+</ol>
+
+<p>That is the whole action. It takes about five seconds.</p>
+
+<h3>The discipline</h3>
+<p>The mechanics are easy. The harder part is building the reflex to do it immediately when a real-world step happens. A call gets booked. A proposal goes out. A client signs. Each of those is a card move. Do it the same day, not later.</p>
+
+<div class="screenshot-placeholder">
+  <span class="ph-icon">&#128247;</span>
+  <span class="ph-label">Screenshot: Dragging a card to a new stage</span>
+  <span class="ph-desc">Capture a contact card mid-drag, hovering over a new stage column. Show the card being moved from one column to another.</span>
+</div>
+
+<hr>
+
+<h2>5. Not a Fit</h2>
+
+<h3>What it is for</h3>
+<p>Not a Fit is a clarity stage, not a failure stage. Moving someone there means you have made a decision. This person is not becoming a client in this pipeline right now. That decision has value. It frees you from carrying the uncertainty.</p>
+
+<h3>When to use it</h3>
+<p>Use it when you know. A contact who has been sitting in New Contact for a year because you are not sure what to do with them is not a pipeline. It is clutter. Make the call and move them.</p>
+
+<p>You can also use it for geography (therapy contacts outside Illinois), scope (work that is not a match for your current practice), or any conversation that has clearly gone cold with no path forward.</p>
+
+<h3>What it does not do</h3>
+<p>Moving someone to Not a Fit does not delete them from your Contacts. They stay in your database. Their record is intact. You can create a new opportunity for them later if something changes. The pipeline just stops treating them as an active prospect.</p>
+
+<hr>
+
+<h2>What's Next</h2>
+
+<p>Module 4 covers the Conversations Hub and the daily follow-up rhythm. You will learn how to use communication history to make every contact feel like the thread was never dropped - and how to build a morning routine that keeps the whole system current without taking more than a few minutes.</p>
+
+<div class="signoff">
+  <p>Emile</p>
+</div>
+
+<div class="module-nav">
+  <a href="../module-02/">&larr; Module 2: Contact Management</a>
+  <div class="next-label">
+    Next
+    <a href="../module-04/">Module 4: Conversations and Follow-Up &rarr;</a>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

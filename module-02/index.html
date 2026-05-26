@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 2: Contact Management — Belongivity Training</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .topnav {
+    background: #2c4a3e;
+    padding: 14px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .topnav-back {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    color: #a8c4bb;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+
+  .topnav-back:hover { color: #fff; }
+
+  .topnav-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: #fff;
+    opacity: 0.85;
+  }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 11.5pt;
+    line-height: 1.75;
+    color: #1a1a1a;
+    background: #fff;
+  }
+
+  .doc-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 60px 64px 80px 64px;
+  }
+
+  .doc-header {
+    border-bottom: 2px solid #2c4a3e;
+    padding-bottom: 24px;
+    margin-bottom: 40px;
+  }
+
+  .doc-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #2c4a3e;
+    margin-bottom: 8px;
+  }
+
+  .doc-title {
+    font-family: 'Georgia', serif;
+    font-size: 24pt;
+    font-weight: 400;
+    color: #1a1a1a;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .doc-subtitle {
+    font-family: 'Arial', sans-serif;
+    font-size: 10pt;
+    color: #666;
+  }
+
+  .salutation {
+    font-size: 11.5pt;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+  }
+
+  p { margin-bottom: 16px; font-size: 11.5pt; }
+
+  hr { border: none; border-top: 1px solid #ddd; margin: 36px 0; }
+
+  h2 {
+    font-family: 'Georgia', serif;
+    font-size: 15pt;
+    font-weight: 600;
+    color: #2c4a3e;
+    margin-top: 40px;
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e0ebe7;
+  }
+
+  h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 10pt;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #555;
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+
+  ol { margin-left: 24px; margin-bottom: 16px; }
+  ol li { margin-bottom: 8px; font-size: 11.5pt; }
+
+  strong { font-weight: 600; color: #1a1a1a; }
+
+  .field-list {
+    background: #f7faf8;
+    border-left: 3px solid #2c4a3e;
+    padding: 20px 24px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .field-list p { margin-bottom: 12px; }
+  .field-list p:last-child { margin-bottom: 0; }
+
+  .callout {
+    background: #fffbf0;
+    border: 1px solid #e8d87a;
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 11pt;
+  }
+
+  .signoff {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid #ddd;
+    font-style: italic;
+    color: #444;
+  }
+
+  .screenshot-placeholder {
+    border: 2px dashed #a8c4bb;
+    border-radius: 6px;
+    background: #f7faf8;
+    padding: 28px 24px;
+    margin: 24px 0;
+    text-align: center;
+  }
+
+  .screenshot-placeholder .ph-icon {
+    font-size: 24pt;
+    color: #a8c4bb;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .screenshot-placeholder .ph-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #2c4a3e;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .screenshot-placeholder .ph-desc {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    color: #777;
+    line-height: 1.5;
+  }
+
+  .module-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid #ddd;
+    font-family: 'Arial', sans-serif;
+    font-size: 9.5pt;
+  }
+
+  .module-nav a { color: #2c4a3e; text-decoration: none; font-weight: 600; }
+  .module-nav a:hover { text-decoration: underline; }
+
+  .module-nav .next-label {
+    text-align: right;
+    color: #999;
+    font-size: 8.5pt;
+    line-height: 1.4;
+  }
+
+  .module-nav .next-label a {
+    display: block;
+    font-size: 9.5pt;
+    color: #2c4a3e;
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a class="topnav-back" href="../">&larr; All Modules</a>
+  <span class="topnav-title">FGFunnels Training</span>
+</nav>
+
+<div class="doc-body">
+
+<div class="doc-header">
+  <div class="doc-label">Belongivity &nbsp;|&nbsp; FGFunnels Training</div>
+  <div class="doc-title">Module 2: Contact Management</div>
+  <div class="doc-subtitle">Prepared by Emile &nbsp;&middot;&nbsp; May 2026</div>
+</div>
+
+<p class="salutation">Dr. Tonya,</p>
+
+<p>Module 1 gave you the lay of the land. This module is about the work itself. By the time you finish, you will know how to add a new contact from scratch, fill in the custom fields with good judgment, update a record after a conversation, and pull up exactly the people you need using filters and search.</p>
+
+<p>These are the tasks you will do most often. Getting comfortable here makes everything else in the system feel easy.</p>
+
+<hr>
+
+<h2>1. Adding a New Contact</h2>
+
+<h3>How to get there</h3>
+<p>In the left menu, click "Contacts." At the top right of the contact list, look for a button labeled "New Contact" or a blue plus icon. Click it. A form opens for the new contact's details.</p>
+
+<h3>What to fill in</h3>
+<p>The form asks for basic details: first name, last name, email address, and phone number. None of these are technically required by the platform, but fill in whatever you have. A contact with just a name is still a contact. You can always add more later.</p>
+
+<p>Click Save. The contact appears in your list immediately. From there, open their record and fill in the custom fields.</p>
+
+<div class="screenshot-placeholder">
+  <span class="ph-icon">&#128247;</span>
+  <span class="ph-label">Screenshot: New contact form</span>
+  <span class="ph-desc">Click the "New Contact" button in the top right of the Contacts view. Capture the blank contact form before any fields are filled in.</span>
+</div>
+
+<hr>
+
+<h2>2. Setting the Custom Fields</h2>
+
+<h3>Why this matters</h3>
+<p>The custom fields are where your judgment goes on record. A contact list without this layer is just names. With it, you can answer questions like "who in the leadership space has high influence and a warmth score above 7" in about ten seconds. But only if the fields are filled in accurately.</p>
+
+<h3>How to think about each field</h3>
+
+<div class="field-list">
+  <p><strong>Segment.</strong> Start with the honest answer. Is this a personal relationship you already trust, or a strategic connection you are developing? If they can open doors to others, choose Amplifier. If you are not sure yet, Warm Contact is the right default. Do not overthink this. You can change it later.</p>
+
+  <p><strong>Warmth Score.</strong> A 9 means this person would take your call today, no context needed. A 5 means you have a real relationship but it needs warming. A 2 means you have barely spoken. Be honest. Inflate this number and it stops being useful. If you are not sure, go lower, not higher.</p>
+
+  <p><strong>Influence Level.</strong> How much reach does this person have in their circles? Not in the world generally. In the rooms you are trying to get into. High, Medium, or Low.</p>
+
+  <p><strong>Potential Value.</strong> What could this relationship be worth to your practice over time? This is separate from influence. Someone can have broad reach but low direct relevance to your work. Rate them separately.</p>
+
+  <p><strong>Next Action.</strong> Write one specific thing. Not "follow up." That is too vague to act on. "Send her the article on community-based leadership" or "Check in after her conference" is a Next Action. If you cannot name the next step, spend 30 seconds deciding before you save the record.</p>
+
+  <p><strong>Last Contact Date.</strong> When did you last speak, email, or meet? Set it accurately. This field paired with Next Action is what keeps relationships from going cold by accident.</p>
+
+  <p><strong>Industry / Market Sector.</strong> Free text. Write whatever fits. "Nonprofit leadership," "Child welfare," "Design and technology." No standard format required.</p>
+
+  <p><strong>Interest Area.</strong> You can select more than one. If a contact relates to both your coaching and design research work, check both. The more accurate this is, the more useful your filters become.</p>
+</div>
+
+<div class="screenshot-placeholder">
+  <span class="ph-icon">&#128247;</span>
+  <span class="ph-label">Screenshot: Custom fields panel - filled in</span>
+  <span class="ph-desc">Open a contact record and scroll to the custom fields section. Capture the panel with all eight fields visible and filled in.</span>
+</div>
+
+<hr>
+
+<h2>3. Updating a Record</h2>
+
+<h3>When to update</h3>
+<p>After every meaningful interaction - a call, a coffee, an email exchange - open the contact record and update two fields: <strong>Next Action</strong> and <strong>Last Contact Date</strong>. That is the minimum. Do it the same day while the conversation is fresh.</p>
+
+<h3>How to edit a field</h3>
+<p>Click directly into the field you want to change. Make your edit. It saves automatically when you click away. No Save button needed for individual fields.</p>
+
+<div class="callout">
+A contact record that has not been updated in three months is not a record. It is a note you forgot about. The habit of updating after every interaction is what separates a system that works from one that slowly becomes noise.
+</div>
+
+<div class="screenshot-placeholder">
+  <span class="ph-icon">&#128247;</span>
+  <span class="ph-label">Screenshot: Editing a field inline</span>
+  <span class="ph-desc">Open a contact record and click into the "Next Action" field to edit it. Capture the field in its editable state, showing the cursor inside the field.</span>
+</div>
+
+<hr>
+
+<h2>4. Finding the Right Contacts</h2>
+
+<h3>Search</h3>
+<p>For a single contact, the search bar is the fastest path. Click into the search bar at the top of the Contacts list. Type any part of a name, email, or phone number. The list filters as you type.</p>
+
+<h3>Filters</h3>
+<p>For groups of contacts, use filters. Click the filter icon near the top of the contact list. Choose what you want to filter by: tag, segment, interest area, or other fields. Apply the filter and the list narrows to that group.</p>
+
+<p>You can stack filters. Tag plus Interest Area, for example, gives you everyone tagged for coaching who is also flagged as high influence. That kind of slice is useful when you are planning a targeted outreach.</p>
+
+<div class="screenshot-placeholder">
+  <span class="ph-icon">&#128247;</span>
+  <span class="ph-label">Screenshot: Contact list with a filter applied</span>
+  <span class="ph-desc">Apply a filter to the contact list - for example, filter by the tag "blvt4-coaching." Capture the filtered list showing only the contacts that match.</span>
+</div>
+
+<hr>
+
+<h2>What's Next</h2>
+
+<p>Module 3 is about the pipeline. You have contacts in the system. Now you will learn how to move them through the stages as real-world steps happen, how to read the board as a snapshot of your practice, and how to use the pipeline to stay ahead of follow-up instead of chasing it.</p>
+
+<div class="signoff">
+  <p>Emile</p>
+</div>
+
+<div class="module-nav">
+  <a href="../module-01/">&larr; Module 1: Platform Orientation</a>
+  <div class="next-label">
+    Next
+    <a href="../module-03/">Module 3: Working the Pipeline &rarr;</a>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
