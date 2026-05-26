@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 1: Platform Orientation — Belongivity Training</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /* Nav bar */
+  .topnav {
+    background: #2c4a3e;
+    padding: 14px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .topnav-back {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    color: #a8c4bb;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+
+  .topnav-back:hover { color: #fff; }
+
+  .topnav-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: #fff;
+    opacity: 0.85;
+  }
+
+  /* Module content area */
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 11.5pt;
+    line-height: 1.75;
+    color: #1a1a1a;
+    background: #fff;
+  }
+
+  .doc-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 60px 64px 80px 64px;
+  }
+
+  /* Header block */
+  .doc-header {
+    border-bottom: 2px solid #2c4a3e;
+    padding-bottom: 24px;
+    margin-bottom: 40px;
+  }
+
+  .doc-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #2c4a3e;
+    margin-bottom: 8px;
+  }
+
+  .doc-title {
+    font-family: 'Georgia', serif;
+    font-size: 24pt;
+    font-weight: 400;
+    color: #1a1a1a;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .doc-subtitle {
+    font-family: 'Arial', sans-serif;
+    font-size: 10pt;
+    color: #666;
+  }
+
+  .salutation {
+    font-size: 11.5pt;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+  }
+
+  p {
+    margin-bottom: 16px;
+    font-size: 11.5pt;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 36px 0;
+  }
+
+  h2 {
+    font-family: 'Georgia', serif;
+    font-size: 15pt;
+    font-weight: 600;
+    color: #2c4a3e;
+    margin-top: 40px;
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e0ebe7;
+  }
+
+  h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 10pt;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #555;
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+
+  ol {
+    margin-left: 24px;
+    margin-bottom: 16px;
+  }
+
+  ol li {
+    margin-bottom: 8px;
+    font-size: 11.5pt;
+  }
+
+  strong {
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+
+  .field-list {
+    background: #f7faf8;
+    border-left: 3px solid #2c4a3e;
+    padding: 20px 24px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .field-list ol { margin-left: 20px; }
+
+  .field-list li {
+    margin-bottom: 10px;
+    line-height: 1.65;
+  }
+
+  .callout {
+    background: #fffbf0;
+    border: 1px solid #e8d87a;
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 11pt;
+  }
+
+  .stage-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0 20px 0;
+  }
+
+  .stage {
+    background: #e8f0ed;
+    color: #2c4a3e;
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .stage-arrow {
+    color: #999;
+    font-size: 10pt;
+    line-height: 2.2;
+  }
+
+  .signoff {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid #ddd;
+    font-style: italic;
+    color: #444;
+  }
+
+  /* Screenshot placeholder */
+  .screenshot-placeholder {
+    border: 2px dashed #a8c4bb;
+    border-radius: 6px;
+    background: #f7faf8;
+    padding: 28px 24px;
+    margin: 24px 0;
+    text-align: center;
+  }
+
+  .screenshot-placeholder .ph-icon {
+    font-size: 24pt;
+    color: #a8c4bb;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .screenshot-placeholder .ph-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #2c4a3e;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .screenshot-placeholder .ph-desc {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    color: #777;
+    line-height: 1.5;
+  }
+
+  /* Module nav footer */
+  .module-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid #ddd;
+    font-family: 'Arial', sans-serif;
+    font-size: 9.5pt;
+  }
+
+  .module-nav a {
+    color: #2c4a3e;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .module-nav a:hover { text-decoration: underline; }
+
+  .module-nav .next-label {
+    text-align: right;
+    color: #999;
+    font-size: 8.5pt;
+    line-height: 1.4;
+  }
+
+  .module-nav .next-label a {
+    display: block;
+    font-size: 9.5pt;
+    color: #2c4a3e;
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a class="topnav-back" href="../">&larr; All Modules</a>
+  <span class="topnav-title">FGFunnels Training</span>
+</nav>
+
+<div class="doc-body">
+
+<div class="doc-header">
+  <div class="doc-label">Belongivity &nbsp;|&nbsp; FGFunnels Training</div>
+  <div class="doc-title">Module 1: Platform Orientation</div>
+  <div class="doc-subtitle">Prepared by Emile &nbsp;&middot;&nbsp; May 2026</div>
+</div>
+
+<p class="salutation">Dr. Tonya,</p>
+
+<p>This is the first module in your FGFunnels training. FGFunnels is the system that holds your contacts, tracks where each one stands in your practice, and keeps every email and message with them in one place. It is built on a platform called Go High Level. FGFunnels is a branded version of that same tool, so anything you read elsewhere about Go High Level, or GHL for short, applies to your account too.</p>
+
+<p>This module is about getting you oriented. By the time you finish reading, you will know how to log in and read your home screen, find any contact and understand what is on their record, see where each person sits in your pipeline, and pull up the full history of your communication with anyone. That is the foundation. Once you can move around these four areas without thinking about it, everything we build on top of it will make sense.</p>
+
+<p>You do not need to memorize anything here. Read it once, then keep it open beside you the first few times you log in. The goal is comfort, not mastery.</p>
+
+<p>A quick note on what you are looking at. Your account has already been set up with real data. Seven of your contacts are loaded, your two pipelines are built, and your custom tracking fields are in place. So as you follow along, you will see your own people and your own categories, not placeholder examples. That is intentional. You learn the tool faster when the contents are familiar.</p>
+
+<p>One term before we start. A <strong>sub-account</strong> is the workspace for a single business inside FGFunnels. Your workspace is named Belongivity. When you log in, you are landing inside that workspace. If you ever see a screen asking you to choose between accounts, choose Belongivity.</p>
+
+<hr>
+
+<h2>1. The Dashboard</h2>
+
+<h3>What it is</h3>
+<p>The Dashboard is your home screen. It is the first thing you see after logging in. Think of it as the front desk of your practice. It does not let you do detailed work. It gives you a quick read on the state of things so you know where to focus before you dig in.</p>
+
+<h3>How to get there</h3>
+<p>After you log in to FGFunnels and land inside the Belongivity workspace, look at the menu running down the left side of the screen. This left menu is how you move between every area of the platform. The top item is "Dashboard." Click it any time you want to return to this home view.</p>
+
+<div class="screenshot-placeholder">
+  <span class="ph-icon">&#128247;</span>
+  <span class="ph-label">Screenshot: Your left navigation menu</span>
+  <span class="ph-desc">Log in to FGFunnels and open the Belongivity workspace. Capture the full left sidebar.<br>You should see five items: Dashboard, Conversations, Contacts, Opportunities, and Calendars.</span>
+</div>
+
+<h3>What you will see</h3>
+<p>The Dashboard shows summary <strong>widgets</strong>. A widget is a small panel that displays one piece of information at a glance. The widgets you care about early on are the ones tied to your pipeline activity. These show how many opportunities you have in motion and roughly what they are worth.</p>
+
+<p>An <strong>opportunity</strong> is the platform's word for a potential piece of business attached to a contact. When someone is moving toward becoming a therapy client or a coaching client, they show up as an opportunity. We will go deeper on opportunities in Section 3. For now, just know that the Dashboard counts them for you.</p>
+
+<p>You may notice the Dashboard looks sparse right now. That is expected. You have seven contacts loaded and they are all sitting at the very first stage of one pipeline. As you start moving people forward and adding new leads, the Dashboard fills in and becomes a real-time picture of your practice.</p>
+
+<div class="screenshot-placeholder">
+  <span class="ph-icon">&#128247;</span>
+  <span class="ph-label">Screenshot: Dashboard home screen</span>
+  <span class="ph-desc">Capture the full dashboard view after clicking "Dashboard" in the left menu.<br>Show the summary widgets panel. The opportunity count and pipeline activity widgets are the focus.</span>
+</div>
+
+<h3>What to pay attention to</h3>
+<p>Two things. First, the total count of opportunities, so you always know how many live conversations you are responsible for. Second, the breakdown by stage, which tells you whether people are stacking up early and not advancing, or moving through at a healthy pace.</p>
+
+<h3>What you can do from here</h3>
+<p>The Dashboard is mostly a reading view, not a working view. You will not manage individual contacts from here. Its job is to point you toward the area that needs attention. When something on the Dashboard prompts a question, you click into Contacts or Opportunities to act on it.</p>
+
+<hr>
+
+<h2>2. Contacts</h2>
+
+<h3>What it is</h3>
+<p>Contacts is your full list of people. Every person connected to your practice lives here, whether they are a warm relationship, a strategic connection, a referral source, or a prospect. This is your database. If the Dashboard is the front desk, Contacts is the filing cabinet, except every file is searchable in a second.</p>
+
+<h3>How to get there</h3>
+<p>In the left menu, click "Contacts." This opens your contact list as a table, one row per person.</p>
+
+<p>Right now you will see your seven imported contacts: Dee Dee Chesley, Stephanie Bynum, Candace Williams, Luecendia Reed, Brenda Blasingame, Chi Offomah, and Katherine Korey. You will also see your own record and an admin email record, which are there for setup purposes and can be ignored.</p>
+
+<div class="screenshot-placeholder">
+  <span class="ph-icon">&#128247;</span>
+  <span class="ph-label">Screenshot: Contacts list view</span>
+  <span class="ph-desc">Click "Contacts" in the left menu. Capture the full contact table.<br>All seven contacts should be visible: Dee Dee Chesley, Stephanie Bynum, Candace Williams, Luecendia Reed, Brenda Blasingame, Chi Offomah, and Katherine Korey.</span>
+</div>
+
+<h3>How to find a specific contact</h3>
+<p>At the top of the contact list there is a search bar. Type any part of a name, an email, or a phone number and the list filters down as you type. To open someone's full record, click their name. This takes you to their contact detail page, which is where the real information lives.</p>
+
+<h3>Reading a contact record</h3>
+<p>When you open a contact, the page shows their basic details at the top: name, email, phone, and any <strong>tags</strong> applied to them. A tag is a simple label you attach to a contact to group them. For example, a contact tagged for the coaching silo can be pulled up later as a group with one filter. Tags do the quiet work of sorting your people behind the scenes.</p>
+
+<p>Below the basic details you will find the <strong>custom fields</strong>. This is the part built specifically for you, and it is worth understanding well, because this is where your judgment about each person is recorded.</p>
+
+<p>A custom field is an extra piece of information that the platform does not track by default, so we added it to fit how you actually think about your contacts. You have eight of them.</p>
+
+<div class="field-list">
+<ol>
+  <li><strong>Segment.</strong> What kind of relationship this is. The options are Warm Contact, Strategic Contact, Amplifier, Prospecting, Non-Prospecting, and Potential Partner. An Amplifier is someone who can open doors to others, the way Dee Dee Chesley connects you to people with high-net-worth networks. This field tells you, at a glance, why this person is in your world.</li>
+  <li><strong>Industry / Market Sector.</strong> The field they work in. Free text, so you can write whatever fits.</li>
+  <li><strong>Influence Level.</strong> High, Medium, or Low. How much reach or sway this person has in their circles.</li>
+  <li><strong>Potential Value.</strong> High, Medium, or Low. What this relationship could be worth to your practice over time. This is separate from influence. Someone can have high influence but low direct value to you, and the reverse.</li>
+  <li><strong>Warmth Score.</strong> A number from 1 to 10. How warm the relationship is right now. A 9 is someone who would take your call today. A 2 is someone you have barely spoken to.</li>
+  <li><strong>Next Action.</strong> What you intend to do next with this person. Free text. This is the field that keeps a relationship from going cold by accident.</li>
+  <li><strong>Last Contact Date.</strong> When you last connected. Paired with Next Action, this is how you stay on top of follow-up without holding it all in your head.</li>
+  <li><strong>Interest Area.</strong> Which part of your work this person relates to. The options are Leadership Development, Futures Work, Design Research, and Therapy. A contact can belong to more than one. This field is how you will later filter your list by the kind of work someone is interested in.</li>
+</ol>
+</div>
+
+<div class="screenshot-placeholder">
+  <span class="ph-icon">&#128247;</span>
+  <span class="ph-label">Screenshot: Contact record with custom fields</span>
+  <span class="ph-desc">Open any contact (e.g., Dee Dee Chesley). Capture the full contact detail page, scrolled to show the custom fields section.<br>The eight fields — Segment, Industry, Influence Level, Potential Value, Warmth Score, Next Action, Last Contact Date, and Interest Area — should all be visible.</span>
+</div>
+
+<div class="callout">
+The two fields that drive your daily rhythm are <strong>Next Action</strong> and <strong>Last Contact Date</strong>. Together they answer the only question that matters on a busy day: who needs to hear from me, and what was I going to say. Get in the habit of updating both whenever you talk to someone.
+</div>
+
+<h3>What you can do from here</h3>
+<p>From a contact record you can edit any field, add or remove tags, and start a conversation. To edit a field, click into it, make the change, and it saves. We will practice updating contacts hands-on in a later module. For now, the goal is to be able to open any record and read it confidently.</p>
+
+<hr>
+
+<h2>3. Opportunities (Pipeline View)</h2>
+
+<h3>What it is</h3>
+<p>An opportunity is a contact who is on a path toward becoming a client or a signed engagement. The Opportunities area shows all of those people laid out visually, so you can see at a glance who is early in the conversation, who is close to signing, and who has stalled.</p>
+
+<p>The layout is called a <strong>pipeline</strong>. Picture a row of columns running left to right across your screen. Each column is a <strong>stage</strong>, meaning a step in the journey. People move from the leftmost column to the rightmost as they progress. Each person shows up as a card you can read and drag.</p>
+
+<h3>Your two pipelines</h3>
+<p>You have two pipelines, because your practice has two different journeys.</p>
+
+<p>The first is <strong>BLVT (4.0) - Therapy.</strong> This is for your individual virtual therapy work and it is for Illinois contacts only, because of state licensure. Its stages run in this order:</p>
+<div class="stage-list">
+  <span class="stage">New Inquiry</span><span class="stage-arrow">&#8594;</span>
+  <span class="stage">Consult Booked</span><span class="stage-arrow">&#8594;</span>
+  <span class="stage">Consult Completed</span><span class="stage-arrow">&#8594;</span>
+  <span class="stage">Active Client</span><span class="stage-arrow">&#8594;</span>
+  <span class="stage">Graduated</span><span class="stage-arrow">&#8594;</span>
+  <span class="stage">Not a Fit</span>
+</div>
+<p>"Graduated" means someone completed their work with you successfully. "Not a Fit" means the person was not a match, whether for geography, scope, or clinical reasons.</p>
+
+<p>The second is <strong>BLVT (4.0) - Coaching and Design Research.</strong> This one is national in scope and it covers both your leadership coaching and your design research work. Its stages run:</p>
+<div class="stage-list">
+  <span class="stage">New Contact</span><span class="stage-arrow">&#8594;</span>
+  <span class="stage">Discovery Call Booked</span><span class="stage-arrow">&#8594;</span>
+  <span class="stage">Discovery Call Completed</span><span class="stage-arrow">&#8594;</span>
+  <span class="stage">Proposal Sent</span><span class="stage-arrow">&#8594;</span>
+  <span class="stage">Signed - Active</span><span class="stage-arrow">&#8594;</span>
+  <span class="stage">Completed</span><span class="stage-arrow">&#8594;</span>
+  <span class="stage">Not a Fit</span>
+</div>
+<p>Design research contacts live in this same pipeline rather than a separate one. They simply carry a design-research tag so you can tell them apart.</p>
+
+<p>Right now, all seven of your contacts sit in the Coaching and Design Research pipeline, at the very first stage, New Contact. That is your starting line. Nobody has moved yet, which is exactly right for where you are.</p>
+
+<h3>How to get there</h3>
+<p>In the left menu, click "Opportunities." If you have more than one pipeline, there is a dropdown menu near the top of the screen that lets you switch between them. Click it and choose the pipeline you want to view. Start with Coaching and Design Research, since that is where your people currently are.</p>
+
+<h3>What you will see</h3>
+<p>A row of stage columns across the top, with each contact appearing as a card in the column that matches their current stage. Because everyone is at New Contact, all seven cards are stacked in the leftmost column right now. Each card shows the contact's name and the value attached to the opportunity if one is set. Click a card to open that contact's record.</p>
+
+<h3>How to move a contact through the pipeline</h3>
+<p>When someone advances, you move their card to the next stage. This takes two seconds.</p>
+<ol>
+  <li>Go to Opportunities and select the correct pipeline from the dropdown.</li>
+  <li>Find the contact's card in its current stage column.</li>
+  <li>Click and hold the card, drag it to the column for the new stage, and release.</li>
+  <li>The card now lives in the new stage and the platform updates everything tied to it.</li>
+</ol>
+
+<div class="screenshot-placeholder">
+  <span class="ph-icon">&#128247;</span>
+  <span class="ph-label">Screenshot: Pipeline board — Coaching and Design Research</span>
+  <span class="ph-desc">Click "Opportunities" in the left menu. Select "BLVT (4.0) - Coaching and Design Research" from the pipeline dropdown. Capture the full Kanban board.<br>All seven contacts should appear as cards stacked in the leftmost column, "New Contact."</span>
+</div>
+
+<div class="callout">
+That drag is the single most important habit in the whole system. Every time a real-world step happens, a call gets booked, a proposal goes out, a client signs, you move the card to match. As long as the board reflects reality, the board can run your follow-up for you.
+</div>
+
+<hr>
+
+<h2>4. Conversations Hub</h2>
+
+<h3>What it is</h3>
+<p>The Conversations Hub is one screen that gathers every message between you and a contact, no matter how it was sent. Email, text, and other channels all flow into the same thread, in order. Instead of digging through your inbox, your phone, and your notes to reconstruct a relationship, you open one place and the whole history is there.</p>
+
+<h3>Why it matters for you</h3>
+<p>You are juggling three kinds of work across many relationships. The thing that erodes trust fastest is losing track of what was already said. The Conversations Hub exists so that when Stephanie Bynum emails you after a month of silence, you can open her thread and see exactly where you left off before you reply. It protects the continuity that makes people feel cared for.</p>
+
+<h3>How to get there</h3>
+<p>In the left menu, click "Conversations." This opens the hub. On the left side of this screen you will see a list of recent conversations. Click any one to open the full thread on the right.</p>
+
+<p>You can also reach a single contact's conversation directly from their contact record. When you have someone open in Contacts, look for the conversation or message option on their page. That takes you straight to your thread with that one person.</p>
+
+<div class="screenshot-placeholder">
+  <span class="ph-icon">&#128247;</span>
+  <span class="ph-label">Screenshot: Conversations Hub</span>
+  <span class="ph-desc">Click "Conversations" in the left menu. Capture the hub view showing the conversation list on the left and the thread panel on the right.<br>Note: the Gmail connection is set up in a later phase, so the hub may show no threads yet. Capture whatever is visible.</span>
+</div>
+
+<h3>What you will see</h3>
+<p>The thread reads top to bottom, oldest message at the top, newest at the bottom, the way a text message history looks on a phone. Each entry shows what was sent, by which channel, and when. Incoming and outgoing messages are visually distinct so you can follow the back-and-forth easily.</p>
+
+<p>A note on email: once your Gmail is connected to FGFunnels, the emails you send and receive will appear here automatically. We will set that connection up in a later phase of the work. Until then, the hub will show messages sent from inside the platform.</p>
+
+<h3>What to pay attention to</h3>
+<p>The most recent message and its date. That tells you who is waiting on a reply from you and how long they have been waiting. A contact whose last message is from them, not you, and is several days old, is someone to attend to.</p>
+
+<h3>What you can do from here</h3>
+<p>You can read any thread and you can reply from within the hub. Replying here keeps the message attached to the right contact and the right thread, so the record stays complete. Sending from inside the platform, rather than from a separate email app, is what keeps the history whole. We will practice composing and replying in a later module.</p>
+
+<hr>
+
+<h2>What's Next</h2>
+
+<p>Module 2 goes deeper on contact management and the pipeline: how to add a new contact from scratch, how to set the custom fields with good judgment, and how to work the pipeline day to day so it runs your follow-up instead of the other way around. For now, log in, click through these four areas a few times, and get comfortable moving around. That familiarity is the whole goal of this module.</p>
+
+<div class="signoff">
+  <p>Emile</p>
+</div>
+
+<div class="module-nav">
+  <a href="../">&larr; All Modules</a>
+  <div class="next-label">
+    Next
+    <a href="#">Module 2: Contact Management &rarr;</a>
+  </div>
+</div>
+
+</div><!-- .doc-body -->
+</body>
+</html>
